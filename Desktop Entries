@@ -1,0 +1,27 @@
+Desktop entries for applications that don't create them on install seem to be most usually (and usefully) put in:
+
+  /usr/share/applications/FILENAME.desktop
+
+The general recipe for creating desktop entries is as follows:
+
+  [Desktop Entry]
+  Version=1.0
+  Type=Application
+  Name=Foo Viewer
+  Comment=The best viewer for Foo objects available!
+  TryExec=fooview
+  Exec=fooview %F
+  Icon=fooview
+  MimeType=image/x-foo;
+  Actions=Gallery;Create;
+
+  [Desktop Action Gallery]
+  Exec=fooview --gallery
+  Name=Browse Gallery
+
+  [Desktop Action Create]
+  Exec=fooview --create-new
+  Name=Create a new Foo!
+  Icon=fooview-new
+  
+  (from freedesktop.org)
